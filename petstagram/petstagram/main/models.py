@@ -101,7 +101,7 @@ class Pet(models.Model):
         null=True,
         blank=True,
         validators=(
-            MinDateValidator(),
+            MinDateValidator(MIN_DATE),
         )
     )
 

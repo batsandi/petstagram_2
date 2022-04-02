@@ -21,6 +21,7 @@ THIRD_PARTY_APPS = ()
 
 PETSTAGRAM_APPS = (
     'petstagram.main',
+    'petstagram.accounts'
 )
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + PETSTAGRAM_APPS
@@ -59,13 +60,14 @@ WSGI_APPLICATION = 'petstagram.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'petstagram_db',
+        'NAME': 'petstagram_part_2',
         'USER': 'postgres',
         'PASSWORD': '1123QwER',
-        'HOST': '127.0.0.1',
+        'HOST': 'localhost',
         'PORT': '5432',
-    },
+    }
 }
+
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
