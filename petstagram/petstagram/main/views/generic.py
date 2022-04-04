@@ -9,7 +9,7 @@ def show_home(request):
         'hide_additional_nav_items': True,
     }
 
-    return render(request, 'home_page.html', context)
+    return render(request, 'main/home_page.html', context)
 
 
 def show_dashboard(request):
@@ -24,4 +24,4 @@ def show_dashboard(request):
         'pet_photos': pet_photos,
     }
 
-    return render(request, 'dashboard.html', context)
+    return render(request, 'main/dashboard.html', context)

@@ -23,12 +23,12 @@ def pet_action(request, form_class, success_url, instance, template_name):
 
 
 def create_pet(request):
-    return pet_action(request, CreatePetForm, 'profile details', Pet(user_profile=get_profile()), 'pet_create.html')
+    return pet_action(request, CreatePetForm, 'profile details', Pet(user_profile=get_profile()), 'main/pet_create.html')
 
 
 def edit_pet(request, pk):
-    return pet_action(request, EditPetForm, 'profile details', Pet.objects.get(pk=pk), 'pet_edit.html')
+    return pet_action(request, EditPetForm, 'profile details', Pet.objects.get(pk=pk), 'main/pet_edit.html')
 
 
 def delete_pet(request, pk):
-    return pet_action(request, DeletePetForm, 'profile details', Pet.objects.get(pk=pk), 'pet_delete.html')
+    return pet_action(request, DeletePetForm, 'profile details', Pet.objects.get(pk=pk), 'main/pet_delete.html')

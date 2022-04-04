@@ -23,7 +23,7 @@ def show_profile(request):
         'pets': pets,
     }
 
-    return render(request, 'profile_details.html', context)
+    return render(request, 'main/profile_details.html', context)
 
 
 def profile_action(request, form_class, success_url, instance, template_name):
@@ -43,15 +43,15 @@ def profile_action(request, form_class, success_url, instance, template_name):
 
 
 def create_profile(request):
-    return profile_action(request, CreateProfileForm, 'index', Profile(), 'profile_create.html')
+    return profile_action(request, CreateProfileForm, 'index', Profile(), 'main/profile_create.html')
 
 
 def edit_profile(request):
-    return profile_action(request, EditProfileForm, 'profile details', get_profile(), 'profile_edit.html')
+    return profile_action(request, EditProfileForm, 'profile details', get_profile(), 'main/profile_edit.html')
 
 
 def delete_profile(request):
-    return profile_action(request, DeleteProfileForm, 'index', get_profile(), 'profile_delete.html')
+    return profile_action(request, DeleteProfileForm, 'index', get_profile(), 'main/profile_delete.html')
 
 #
 # def create_profile(request):
