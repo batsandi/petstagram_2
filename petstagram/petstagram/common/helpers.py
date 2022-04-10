@@ -1,6 +1,6 @@
 from django import forms
 
-from petstagram.main.models import Profile
+from petstagram.accounts.models import Profile
 
 
 def get_profile():

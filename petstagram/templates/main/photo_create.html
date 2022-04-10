@@ -4,11 +4,12 @@
     <div class="row">
         <div class="col-lg-3"></div>
         <div class="col-lg-6">
-            <form method="POST" action="dashboard.html">
+            <form method="POST" action="{% url 'create pet photo' %}", enctype="multipart/form-data">
 
                 <!-- Form for Adding Photos -->
-
-                <button class="btn btn-primary mt-2" type="submit">Create</button>
+                {% csrf_token %}
+                {{ form }}
+                <button class="btn btn-primary mt-2" type="submit">Ka4i Snimka</button>
             </form>
         </div>
         <div class="col-lg-3"></div>

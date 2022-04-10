@@ -1,7 +1,37 @@
+from django.contrib.auth import mixins as auth_mixins
 from django.shortcuts import render, redirect
+from django.urls import reverse_lazy
+from django.views import generic as views
 
 from petstagram.main.models import PetPhoto
-from petstagram.main.helpers import get_profile
+
+
+class PetPhotoDetailsView(views.DetailView, auth_mixins.LoginRequiredMixin):
+    template_name = 'main/photo_details.html'
+    model = PetPhoto
+    context_object_name = 'pet_photo'
+
+    def get_queryset(self):
+        queryset = super()\
+            .get_queryset(). \
+            prefetch_related('tagged_pets')
+        return queryset
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['is_owner'] = self.object.user == self.request.user
+        return context
+
+
+class CreatePetPhotoView(views.CreateView, auth_mixins.LoginRequiredMixin):
+    template_name = 'main/photo_create.html'
+    model = PetPhoto
+    fields = ('photo', 'description', 'tagged_pets')
+    success_url = reverse_lazy('dashboard')
+
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super().form_valid(form)
 
 
 def show_pet_photo_details(request, pk):

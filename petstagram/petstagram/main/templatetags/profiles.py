@@ -1,6 +1,6 @@
 from django import template
 
-from petstagram.main.models import Profile
+from petstagram.accounts.models import Profile
 
 register = template.Library()
 
